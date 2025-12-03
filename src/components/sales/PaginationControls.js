@@ -32,21 +32,7 @@ export default function PaginationControls({
           Page size: <span className="font-semibold">{pageSize}</span> (max from
           API)
         </span>
-        {pagination && (
-          <span className="ml-3 text-slate-500">
-            Cursor after:{" "}
-            <span className="font-mono">
-              {pagination.after ? "set" : "-"}
-            </span>{" "}
-            | before:{" "}
-            <span className="font-mono">
-              {pagination.before ? "set" : "-"}
-            </span>
-          </span>
-        )}
       </div>
     </div>
   );
 }
-
-

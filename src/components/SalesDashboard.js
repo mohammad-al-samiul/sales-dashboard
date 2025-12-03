@@ -101,9 +101,6 @@ export default function SalesDashboard({ initialToken }) {
             fetched live from the Sales Analytics API.
           </p>
         </div>
-        <div className="text-xs text-slate-500">
-          <p>Token cached for this session using React Query.</p>
-        </div>
       </header>
 
       <FiltersBar

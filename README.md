@@ -57,4 +57,3 @@ The main dashboard is implemented in `src/app/page.js` and `src/components/Sales
 5. Click **Deploy**.
 
 Once deployed, you will get a live URL like `https://your-project-name.vercel.app` that you can submit together with the GitHub repo link.
-

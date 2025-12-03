@@ -1,3 +1,8 @@
-export default function Home() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+import { fetchAuthorizeToken } from "../lib/apiClient";
+import SalesDashboard from "../components/SalesDashboard";
+
+export default async function HomePage() {
+  const token = await fetchAuthorizeToken();
+
+  return <SalesDashboard initialToken={token} />;
 }

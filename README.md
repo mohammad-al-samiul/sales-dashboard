@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Sales Dashboard
 
-## Getting Started
+A simple one-page sales analytics dashboard built with **Next.js App Router**, **React 19**, **@tanstack/react-query**, and **Recharts**.
 
-First, run the development server:
+The dashboard consumes the provided Sales Analytics API:
+
+- `POST /getAuthorize` – obtain an authorization token (valid for 2 hours).
+- `GET /sales` – fetch sales analytics with filters, sorting, and cursor-based pagination.
+
+### Features
+
+- **Date range filter** (start and end date).
+- **Additional filters:** minimum price, customer email, phone number.
+- **Server-side token fetch** using Next.js server components.
+- **Time-series line chart** of `TotalSales` over time with Recharts.
+- **Sales table** (up to 50 items per page) with:
+  - Sorting by **date** and **price** (asc/desc).
+  - Cursor-based pagination using **before/after** tokens.
+- **Caching & instant back navigation** via React Query.
+- **Responsive layout** optimized for desktop, tablet, and mobile.
+
+### Tech Stack
+
+- Next.js 16 (App Router, React Server Components).
+- React 19.
+- @tanstack/react-query 5 for data fetching and caching.
+- Recharts for charting.
+- Tailwind CSS v4 (utility classes) with a minimal custom design.
+
+## Getting Started (Local Development)
+
+Install dependencies (if not already installed):
+
+```bash
+npm install
+```
+
+Run the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The main dashboard is implemented in `src/app/page.js` and `src/components/SalesDashboard.js`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment (Vercel)
 
-## Learn More
+1. Push this project to a **public GitHub repository**.
+2. Go to Vercel and choose **“New Project”**.
+3. Import your GitHub repo.
+4. Use the default Next.js settings:
+   - Framework: Next.js
+   - Build command: `npm run build`
+   - Output directory: `.next`
+5. Click **Deploy**.
 
-To learn more about Next.js, take a look at the following resources:
+Once deployed, you will get a live URL like `https://your-project-name.vercel.app` that you can submit together with the GitHub repo link.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
